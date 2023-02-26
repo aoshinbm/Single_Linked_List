@@ -48,6 +48,19 @@ func (l *LinkedList) DeleteElement(delete int) {
 	}
 }
 
+func (l *LinkedList) AddLast(value int) {
+	newNode := &Node{Value: value}
+	if l.Head == nil {
+		l.Head = newNode
+		return
+	}
+	current := l.Head
+	for current.Next != nil {
+		current = current.Next
+	}
+	current.Next = newNode
+}
+
 func main() {
 	list := &LinkedList{}
 	list.Append(10)
@@ -59,5 +72,11 @@ func main() {
 
 	fmt.Println(" ")
 	list.DeleteElement(50)
+	list.Display()
+
+	fmt.Println(" ")
+	list.AddLast(90)
+	list.AddLast(100)
+	list.AddLast(110)
 	list.Display()
 }
