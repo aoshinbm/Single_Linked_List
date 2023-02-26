@@ -28,7 +28,7 @@ func (l *LinkedList) Append(value int) {
 	l.Head = newNode
 }
 
-func (l *LinkedList) DeleteElement(delete int) {
+func (l *LinkedList) DeleteFirst(delete int) {
 	if l.Head == nil {
 		fmt.Println("LinkedList is empty")
 		return
@@ -38,6 +38,8 @@ func (l *LinkedList) DeleteElement(delete int) {
 		l.Head = l.Head.Next
 		return
 	}
+}
+func (l *LinkedList) DeleteLast(delete int) {
 	current := l.Head
 	for current.Next != nil {
 		if current.Next.Value == delete {
@@ -71,7 +73,7 @@ func main() {
 	list.Display()
 
 	fmt.Println(" ")
-	list.DeleteElement(50)
+	list.DeleteFirst(50)
 	list.Display()
 
 	fmt.Println(" ")
@@ -79,4 +81,10 @@ func main() {
 	list.AddLast(100)
 	list.AddLast(110)
 	list.Display()
+
+	fmt.Println(" ")
+	list.DeleteLast(110)
+	list.Display()
+
+	fmt.Println(" ")
 }
