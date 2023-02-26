@@ -38,15 +38,14 @@ func (l *LinkedList) DeleteElement(delete int) {
 		l.Head = l.Head.Next
 		return
 	}
-	/*	current := l.Head
-		for current.Next != nil {
-			if current.Next.Value == delete {
-				current.Next = current.Next.Next
-				return
-			}
-			current = current.Next
+	current := l.Head
+	for current.Next != nil {
+		if current.Next.Value == delete {
+			current.Next = current.Next.Next
+			return
 		}
-	*/
+		current = current.Next
+	}
 }
 
 func main() {
